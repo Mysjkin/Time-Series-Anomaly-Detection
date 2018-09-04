@@ -8,4 +8,10 @@ Method:
   
 This project was used as part of the validation process for a model architecture used to detect anomalies in time series data.
 
-* The ECG data is labeled but the anomaly detection is based on the reconstruction error produced by the autoencoder, and the labels are only used as part of the validation process and not directly used in the training process. 
+'''* The ECG data is labeled but the anomaly detection is based on the reconstruction error produced by the autoencoder, and the labels are only used as part of the validation process and not directly used in the training process.'''
+
+## Model Architecture
+
+## Data Exploration
+
+## Results
