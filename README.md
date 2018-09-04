@@ -10,8 +10,8 @@ This project was used as part of the validation process for a model architecture
 
 ```* The ECG data is labeled but the anomaly detection is based on the reconstruction error produced by the autoencoder, and the labels are only used as part of the validation and not directly used for training the model.```
 
-## Model Architecture
+### Model Architecture
 
-## Data Exploration
+### Data Exploration
 
-## Results
+### Results
