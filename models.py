@@ -39,6 +39,9 @@ def get_model(input_dim, latent_dim, segment_size, optimizer, learning_rate=1e-5
     decoded = LSTM(latent_dim, return_sequences=True)(decoder_input, initial_state=[encoded, cell_state])         
     # Convert the dimension of decoded values to the input dimension.         
     decoded_dense = Dense(input_dim)(decoded)         
-    # Define model input and output         
-    return Model(inputs, decoded_dense)
+    # Define model input and output
+    model = Model(inputs, decoded_dense)
+    optimizer.lr = learning_rate
+    model.compile(optimizer = optimizer, loss = loss)         
+    return model
 
