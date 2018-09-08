@@ -5,7 +5,7 @@ from keras.layers import Input, LSTM, RepeatVector, Dense
 from keras.models import Model 
 from keras import optimizers
 
-def get_model(input_dim, latent_dim, segment_size, optimizer, learning_rate=1e-5, loss='mse'):
+def get_model(input_dim, latent_dim, segment_size, optimizer_name, learning_rate=1e-5, loss='mse'):
     """ Creates an lstm-based autoencoder.
 
     Args:
@@ -41,7 +41,14 @@ def get_model(input_dim, latent_dim, segment_size, optimizer, learning_rate=1e-5
     decoded_dense = Dense(input_dim)(decoded)         
     # Define model input and output
     model = Model(inputs, decoded_dense)
+
+    optimizer = get_optimizer(optimizer_name)
     optimizer.lr = learning_rate
     model.compile(optimizer = optimizer, loss = loss)         
     return model
 
+def get_optimizer(optimizer):
+    if optimizer == 'adam':
+        return optimizers.Adam()
+    else:
+        return 0

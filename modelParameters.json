@@ -1,0 +1,11 @@
+{
+    "segmentSize": 5,
+    "inputDimension": 2,
+    "latentDimension": 4,
+    "optimizer": "adam",
+    "lossFunction": "mse",
+    "learningRate": 0.00001,
+    "epochs": 5,
+    "validationSplit": 0,
+    "testSplit": 0.3
+}

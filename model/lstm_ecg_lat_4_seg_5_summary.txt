@@ -1,9 +1,0 @@
-Parameters:
-- Input dimensionality: 2
-- Latent dimensionality: 4
-- Timesteps: 5
-- Epochs: 15000
-- Batch size: 254
-Score:
-- Training loss: 0.0120939801442
-- Training val_loss: 0.0133782183677

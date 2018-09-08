@@ -16,3 +16,4 @@ def create_input_tensor(data, segment_size):
     for i in range(0, num_samples):
         input_tensor[i] = data[i*segment_size:i*segment_size+segment_size]
     return input_tensor
+
