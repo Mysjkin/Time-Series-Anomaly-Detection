@@ -12,8 +12,12 @@ import graphs
 
 from keras.models import load_model
 
+# Load model parameters.
+with open("modelParameters.json", "r") as model_param:
+    parameters = json.load(model_param)
+
 # Load data.
-df = pd.read_csv('./data/100.csv', nrows=10000)
+df = pd.read_csv('./data/100.csv', nrows=parameters['numSamples'])
 
 """ Remove time stamps - under the assumption that
 the distance between time stamps can be regarded as
@@ -21,10 +25,6 @@ one unit of time. This may not necessarily be the case,
 however, for this small example it is fine. 
 """
 df = df[['v5','mlii']]
-
-# Load model parameters.
-with open("modelParameters.json", "r") as model_param:
-    parameters = json.load(model_param)
 
 # Normalize data.
 df = df.values.astype('float32')

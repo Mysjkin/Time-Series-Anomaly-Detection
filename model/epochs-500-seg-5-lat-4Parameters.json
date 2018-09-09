@@ -1,0 +1,1 @@
+{"validationSplit": 0, "latentDimension": 4, "lossFunction": "mse", "segmentSize": 5, "inputDimension": 2, "numSamples": 30000, "optimizer": "adam", "epochs": 500, "learningRate": 1e-05, "testSplit": 0.3}
