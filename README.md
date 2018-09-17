@@ -14,5 +14,7 @@ This project was used as part of the validation process for a model architecture
 ![alt text](https://github.com/Mysjkin/Time-Series-Anomaly-Detection/blob/master/output/figures/lstm-model-1.png)
 
 ### Data Exploration
+![alt text](https://github.com/Mysjkin/Time-Series-Anomaly-Detection/blob/master/output/figures/data_and_anomalies.png)
 
 ### Results
+![alt text](https://github.com/Mysjkin/Time-Series-Anomaly-Detection/blob/master/output/figures/actual_predicted.png)
