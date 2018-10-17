@@ -1,4 +1,7 @@
 # Time-Series-Anomaly-Detection
+
+** WIP **
+
 Testing encoder-decoder architecture to detect anomalies in time series unlabeled* data.
 
 Using the following data sets: ECG record 100 from MIT-BIH arrhythmia database [https://www.physionet.org/physiobank/database/mitdb/] http://courses.csail.mit.edu/18.337/2017/projects/morales_manuel/datasets/ecg_data/MIT-BIH-arrhythmia-database/.
