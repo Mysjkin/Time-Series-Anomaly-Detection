@@ -24,7 +24,7 @@ model.load_weights(model_path+'.h5')
 print(model)
 
 # Load data.
-df = pd.read_csv('./data/100.csv', nrows=parameters['numSamples'])
+df = pd.read_csv('./data/100.csv', nrows=parameters['numSamples'], skiprows=(1, 30000))
 # Remove elapsed time - assuming time is increased by one unit.
 df = df[['v5','mlii']]
 
@@ -42,11 +42,30 @@ input_tensor = preprocessing.create_input_tensor(test_df, parameters['segmentSiz
 
 decoded = model.predict(input_tensor)
 
-range_to_display = (0,250)
+segment_size = parameters['segmentSize']
+num_features = test_df.shape[-1]
+samples = input_tensor.shape[0]
 
-graphs.rangedSegmentedDataPlot(decoded, parameters['segmentSize'], 0, range_to_display)
-graphs.rangedSegmentedDataPlot(input_tensor, parameters['segmentSize'], 0, range_to_display)
+range_to_display = (0,500)
+
+graphs.rangedSegmentedDataPlot(input_tensor, parameters['segmentSize'], 'Actual', 0, range_to_display)
+graphs.rangedSegmentedDataPlot(decoded, parameters['segmentSize'], 'Predicted', 0, range_to_display)
+
+input_tensors = input_tensor.reshape((samples * segment_size, num_features))     
+decoded = decoded.reshape((samples * segment_size, num_features))
+
+error = np.sum(np.abs(input_tensors - decoded), axis=1)
 
 import matplotlib.pyplot as plt
 
+print(error.shape)
+
+plt.plot(range(0, 500), error[0:500,])
+
 plt.show()
+
+""" plt.ylabel('V5')
+plt.xlabel('Time')
+plt.title('Actual and predicted ECG data')
+plt.legend()
+plt.savefig('./output/figures/actual_predicted.png') """

@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import sys
 
-def animatedDataSequence(data):
+# Not used currently.
+""" def animatedDataSequence(data):
     fig, ax = plt.subplots()
     fig.set_tight_layout(True)
 
@@ -19,14 +20,14 @@ def animatedDataSequence(data):
         ax.set_xlabel(label)
         return line, ax
     anim = FuncAnimation(fig, update, frames=np.arange(0,10), interval=200)
-    anim.save('line.gif', writer='imagemagick', fps=30)
+    anim.save('line.gif', writer='imagemagick', fps=30) """
 
-def rangedSegmentedDataPlot(data, segment_size, feature_index=0, realSampleRange=(0,1)):
+def rangedSegmentedDataPlot(data, segment_size, label, feature_index=0, realSampleRange=(0,1)):
     startTensorElement = realSampleRange[0] 
     endTensorElement = realSampleRange[1] // segment_size
-    segmentedDataPlot(data[startTensorElement:endTensorElement], segment_size, feature_index=feature_index)
+    segmentedDataPlot(data[startTensorElement:endTensorElement], segment_size, label, feature_index=feature_index)
 
-def segmentedDataPlot(data, segment_size, feature_index=0):
+def segmentedDataPlot(data, segment_size, label, feature_index=0):
         """ Creates a plot of an tensor used as input/output from the
             LSTM-based model.
 
@@ -42,11 +43,5 @@ def segmentedDataPlot(data, segment_size, feature_index=0):
                 y[k] = data[i][w][feature_index]
                 k = k+1
     
-        plt.plot(x,y)
-    
-if __name__ == '__main__':
-    animatedDataSequence(1)
-
-
-
+        plt.plot(x,y, label=label)
 
