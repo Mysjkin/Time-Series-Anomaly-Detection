@@ -1,6 +1,6 @@
 # Time-Series-Anomaly-Detection
 
-** WIP **
+**WIP**
 
 Testing encoder-decoder architecture to detect anomalies in time series unlabeled* data.
 
