@@ -7,6 +7,12 @@ from sklearn.preprocessing import MinMaxScaler
 import preprocessing
 import graphs
 
+def reconstruction_error(input_tensor, decoded):
+    input_tensors = input_tensor.reshape((samples * segment_size, num_features))     
+    decoded = decoded.reshape((samples * segment_size, num_features))
+
+    return np.sum(np.abs(input_tensors - decoded), axis=1)
+
 model_dir = './model/'
 # Load model parameters.
 with open("modelParameters.json", "r") as model_param:
@@ -51,10 +57,7 @@ range_to_display = (0,500)
 graphs.rangedSegmentedDataPlot(input_tensor, parameters['segmentSize'], 'Actual', 0, range_to_display)
 graphs.rangedSegmentedDataPlot(decoded, parameters['segmentSize'], 'Predicted', 0, range_to_display)
 
-input_tensors = input_tensor.reshape((samples * segment_size, num_features))     
-decoded = decoded.reshape((samples * segment_size, num_features))
-
-error = np.sum(np.abs(input_tensors - decoded), axis=1)
+error = reconstruction_error(input_tensor, decoded)
 
 import matplotlib.pyplot as plt
 
