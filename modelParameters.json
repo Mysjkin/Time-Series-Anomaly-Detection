@@ -5,8 +5,8 @@
     "optimizer": "adam",
     "lossFunction": "mse",
     "learningRate": 0.00001,
-    "epochs": 500,
+    "epochs": 1000,
     "validationSplit": 0,
-    "testSplit": 0.3,
-    "numSamples":30000
+    "testSplit": 0.1,
+    "numSamples":50000
 }
